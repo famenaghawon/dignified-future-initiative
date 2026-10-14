@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const articles = [
+  {
+    title: '30 Edo youths trained on legislative processes',
+    source: 'Vanguard Nigeria',
+    date: 'June 2026',
+    url: 'https://www.vanguardngr.com/2026/06/30-edo-youths-trained-on-legislative-processes/',
+    summary: 'Coverage of the EU-funded initiative in Benin City that trained 30 young leaders in legislative processes.'
+  },
+  {
+    title: 'European Union backs youth leadership initiative',
+    source: 'Punch Nigeria',
+    date: 'June 2026',
+    url: 'https://punchng.com/european-union-backs-youth-leadership-initiative/',
+    summary: 'Highlighting the EU\'s support for youth leadership and governance skills in Edo State.'
+  }
+];
+---
+<Layout title="News & Updates">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-[#1C2354] mb-8">News & Updates</h1>
+    <div class="space-y-6">
+      {articles.map((article) => (
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <span class="text-sm text-[#00B5E2] font-bold">{article.source} | {article.date}</span>
+          <h2 class="text-xl font-bold mt-1 mb-2">{article.title}</h2>
+          <p class="text-gray-600 mb-4">{article.summary}</p>
+          <a href={article.url} target="_blank" class="text-[#1C2354] font-semibold hover:underline">Read Article &rarr;</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

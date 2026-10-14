@@ -1,0 +1,31 @@
+---
+// Header.astro
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Programmes', href: '/programmes' },
+  { name: 'Impact', href: '/impact' },
+  { name: 'News', href: '/news' },
+  { name: 'Get Involved', href: '/get-involved' },
+  { name: 'Contact', href: '/contact' },
+];
+---
+
+<header class="bg-[#1C2354] text-white">
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/" class="flex items-center gap-2">
+      <!-- We will place the logo image here later -->
+      <span class="font-bold text-xl">Dignified Future Initiative</span>
+    </a>
+    <ul class="hidden md:flex space-x-6">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="hover:text-[#00B5E2] transition-colors">
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <!-- Mobile menu button would go here -->
+  </nav>
+</header>
