@@ -16,10 +16,18 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | Dignified Future Initiative</title>
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-gray-50 flex flex-col min-h-screen">
     <Header />
-    <main class="container mx-auto px-4 py-12">
+    <main class="container mx-auto px-4 py-12 flex-grow">
       <slot />
     </main>
+    <footer class="bg-[#1C2354] text-white py-8 mt-12">
+      <div class="container mx-auto px-4 text-center text-sm">
+        <p>&copy; {new Date().getFullYear()} Dignified Future Initiative Ltd/Gte (RC 9861744). All rights reserved.</p>
+        <p class="mt-2">
+          <a href="https://dignityamenaghawon.com" target="_blank" class="text-[#00B5E2] hover:underline">Meet Our Founder, Dignity Amenaghawon &rarr;</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

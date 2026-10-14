@@ -11,12 +11,13 @@ const navLinks = [
 ];
 ---
 
-<header class="bg-[#1C2354] text-white">
+<header class="bg-[#1C2354] text-white relative">
   <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
     <a href="/" class="flex items-center gap-2">
-      <!-- We will place the logo image here later -->
       <span class="font-bold text-xl">Dignified Future Initiative</span>
     </a>
+    
+    <!-- Desktop Menu -->
     <ul class="hidden md:flex space-x-6">
       {navLinks.map((link) => (
         <li>
@@ -26,6 +27,33 @@ const navLinks = [
         </li>
       ))}
     </ul>
-    <!-- Mobile menu button would go here -->
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
   </nav>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#1C2354] border-t border-gray-700">
+    <ul class="flex flex-col px-4 py-2 space-y-2">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="block py-2 hover:text-[#00B5E2] transition-colors">
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
